@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Quan ly chi tieu</title>
+  <link rel="stylesheet" href="/stylesheets/angular-material.min.css">
+
+  <script src="/javascripts/angular/libs/angular.min.js"></script>
+  <script src="/javascripts/angular/libs/angular-animate.min.js"></script>
+  <script src="/javascripts/angular/libs/angular-aria.min.js"></script>
+  <script src="/javascripts/angular/libs/angular-messages.min.js"></script>
+  <script src="/javascripts/angular/libs/angular-material.min.js"></script>
+
+  <script src="/javascripts/angular/libs/angular-ui-router.js"></script>
+  <script src="/javascripts/angular/angularApp.js"></script>
+
+  <!-- Services -->
+
+  <!-- Controllers -->
+  <script src="/javascripts/angular/controller/toolbarCtrl.js"></script>
+  <script src="/javascripts/angular/controller/loginCtrl.js"></script>
+  <script src="/javascripts/angular/controller/mainCtrl.js"></script>
+  <script src="/javascripts/angular/controller/statisticCtrl.js"></script>
+  <script src="/javascripts/angular/controller/utilCtrl.js"></script>
+  <script src="/javascripts/angular/controller/transactionCtrl.js"></script>
+
+<!-- Admin controllers -->
+
+</head>
+
+<body ng-app="moneyApp">
+  <div ng-cloak layout="row" layout-align="center">
+    <md-card flex="50">
+      <md-toolbar class="md-theme-light" ng-controller="ToolbarCtrl as toolbarCtrl" ng-show="toolbarCtrl.state.current.name != 'home'">
+        <div class="md-toolbar-tools">
+          <h1 class="md-toolbar-tools" layout-align="None center">
+            <span>{{toolbarCtrl.titles[toolbarCtrl.id]}}</span>
+          </h1>
+          <span flex></span>
+          <md-button class="md-icon-button" aria-label="Favorite" ng-click="toolbarCtrl.goToPage(0)">
+            <md-tooltip md-direction="bottom">
+              Chi tieu
+            </md-tooltip>
+            <md-icon md-svg-icon="/img/ic_monetization_on_white_24px.svg" style="color: greenyellow;"></md-icon>
+          </md-button>
+          <md-button class="md-icon-button" aria-label="Favorite" ng-click="toolbarCtrl.goToPage(1)">
+            <md-tooltip md-direction="bottom">
+              Thong ke
+            </md-tooltip>
+            <md-icon md-svg-icon="/img/ic_pie_chart_white_24px.svg" style="color: greenyellow;"></md-icon>
+          </md-button>
+          <md-button class="md-icon-button" aria-label="Favorite" ng-click="toolbarCtrl.goToPage(2)">
+            <md-tooltip md-direction="bottom">
+              Mo rong
+            </md-tooltip>
+            <md-icon md-svg-icon="/img/ic_more_vert_white_24px.svg" style="color: greenyellow;"></md-icon>
+          </md-button>
+        </div>
+      </md-toolbar>
+
+      <ui-view></ui-view>
+    </md-card>
+  </div>
+</body>
+
+</html>

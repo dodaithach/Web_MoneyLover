@@ -1,0 +1,68 @@
+<div style="margin-left:20px;margin-right:20px;">
+  <md-list flex>
+    <md-subheader class="md-no-sticky">
+      <div layout="row" layout-align="space-between center">
+      Chi tieu trong ngay
+      <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+      </div>
+    </md-subheader>
+    <md-list-item class="md-2-line">
+      <img ng-src="/img/ic_money.png" class="md-avatar" />
+      <div class="md-list-item-text">
+        <h3>So du dau</h3>
+        <h4>200,000</h4>
+      </div>
+    </md-list-item>
+    <md-list-item class="md-2-line">
+      <img ng-src="/img/ic_money.png" class="md-avatar" />
+      <div class="md-list-item-text">
+        <h3>So du cuoi</h3>
+        <h4>200,000</h4>
+      </div>
+    </md-list-item>
+  </md-list>
+
+  <md-list flex>
+    <md-subheader class="md-no-sticky">Chi tiet</md-subheader>
+    <md-list-item class="md-3-line" ng-click="mainCtrl.transactionClicked()">
+      <img ng-src="/img/ic_tiendien.png" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Tien dien</h3>
+        <h4>200,000</h4>
+      </div>
+    </md-list-item>
+    <md-list-item class="md-3-line" ng-click="null">
+      <img ng-src="/img/ic_tiendien.png" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Tien dien</h3>
+        <h4>200,000</h4>
+      </div>
+    </md-list-item>
+    <md-list-item class="md-3-line" ng-click="null">
+      <img ng-src="/img/ic_tiendien.png" class="md-avatar" />
+      <div class="md-list-item-text" layout="column">
+        <h3>Tien dien</h3>
+        <h4>200,000</h4>
+      </div>
+    </md-list-item>
+  </md-list>
+</div>
+
+<md-fab-toolbar md-direction="left">
+  <md-fab-trigger class="align-with-text">
+    <md-button aria-label="menu" class="md-fab">
+      <md-icon md-svg-src="/img/ic_add_white_24px.svg"></md-icon>
+    </md-button>
+  </md-fab-trigger>
+
+  <md-toolbar>
+    <md-fab-actions class="md-toolbar-tools">
+      <md-button aria-label="Tien ra" class="md-icon-button">
+        <md-icon md-svg-src="/img/ic_outcome_24px.svg"></md-icon>
+      </md-button>
+      <md-button aria-label="Tien vao" class="md-icon-button">
+        <md-icon md-svg-src="/img/ic_income_24px.svg"></md-icon>
+      </md-button>
+    </md-fab-actions>
+  </md-toolbar>
+</md-fab-toolbar>

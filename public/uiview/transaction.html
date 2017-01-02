@@ -1,0 +1,68 @@
+<div style="margin-left:20px;margin-right:20px;">
+  <md-list flex>
+    <md-subheader class="md-no-sticky">
+      Chi tieu trong ngay
+    </md-subheader>
+    <md-list-item style="padding-top:25px;padding-bottom:20px;">
+      <img ng-src="/img/ic_date.png" class="md-avatar" />
+      <md-datepicker ng-model="myDate" md-placeholder="Chon ngay"></md-datepicker>
+    </md-list-item>
+  </md-list>
+  <md-list flex>
+    <md-subheader class="md-no-sticky">
+      So tien
+    </md-subheader>
+    <md-list-item>
+      <img ng-src="/img/ic_money.png" class="md-avatar" />
+      <md-input-container style="margin-top:30px;margin-left:15px;">
+        <input ng-model="user.address2" placeholder="Nhap so tien">
+      </md-input-container>
+    </md-list-item>
+  </md-list>
+  <md-list flex>
+    <md-subheader class="md-no-sticky">
+      Nhom
+    </md-subheader>
+    <md-list-item>
+      <img ng-src="/img/sv60.png" class="md-avatar" />
+      <md-input-container style="margin-top:30px;margin-left:15px;margin-bottom:30px;">
+        <md-select ng-model="transactionCtrl.type">
+          <md-option ng-repeat="type in transactionCtrl.typeList" value="{{type}}">
+            {{type}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </md-list-item>
+  </md-list>
+  <md-list flex>
+    <md-subheader class="md-no-sticky">
+      Ghi chu
+    </md-subheader>
+    <md-list-item>
+      <img ng-src="/img/ic_note.png" class="md-avatar" />
+      <md-input-container style="margin-top:30px;margin-left:15px;">
+        <input ng-model="user.address2" placeholder="Nhap so tien">
+      </md-input-container>
+    </md-list-item>
+  </md-list>
+  <md-list flex>
+    <md-subheader class="md-no-sticky">
+      Loai thanh toan
+    </md-subheader>
+    <md-list-item>
+      <img ng-src="/img/ic_wallet1.png" class="md-avatar" />
+      <md-input-container style="margin-top:30px;margin-left:15px;margin-bottom:30px;">
+        <md-select ng-model="transactionCtrl.type">
+          <md-option ng-repeat="type in transactionCtrl.typeList" value="{{type}}">
+            {{type}}
+          </md-option>
+        </md-select>
+      </md-input-container>
+    </md-list-item>
+  </md-list>
+
+  <div layout="row" layout-align="end" style="margin-bottom:20px;">
+    <md-button>Huy</md-button>
+    <md-button class="md-primary">Luu</md-button>
+  </div>
+</div>
