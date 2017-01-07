@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="google-signin-client_id" content="799105536867-8tcdqtmv7krhgfh4tat9ch1b226t4kc7.apps.googleusercontent.com">
   <title>Quan ly chi tieu</title>
   <link rel="stylesheet" href="/stylesheets/angular-material.min.css">
 
@@ -10,11 +11,18 @@
   <script src="/javascripts/angular/libs/angular-aria.min.js"></script>
   <script src="/javascripts/angular/libs/angular-messages.min.js"></script>
   <script src="/javascripts/angular/libs/angular-material.min.js"></script>
+  <script src="/javascripts/angular/libs/jwt-decode.min.js"></script>
 
   <script src="/javascripts/angular/libs/angular-ui-router.js"></script>
   <script src="/javascripts/angular/angularApp.js"></script>
 
   <!-- Services -->
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <script src="/javascripts/angular/service/authService.js"></script>
+  <script src="/javascripts/angular/service/serverService.js"></script>
+  <script src="/javascripts/angular/service/timeService.js"></script>
+  <script src="/javascripts/angular/service/transactionService.js"></script>
+  <script src="/javascripts/angular/service/walletService.js"></script>
 
   <!-- Controllers -->
   <script src="/javascripts/angular/controller/toolbarCtrl.js"></script>
@@ -23,6 +31,8 @@
   <script src="/javascripts/angular/controller/statisticCtrl.js"></script>
   <script src="/javascripts/angular/controller/utilCtrl.js"></script>
   <script src="/javascripts/angular/controller/transactionCtrl.js"></script>
+  <script src="/javascripts/angular/controller/walletCtrl.js"></script>
+  <script src="/javascripts/angular/controller/walletDetailCtrl.js"></script>
 
 <!-- Admin controllers -->
 
@@ -30,7 +40,7 @@
 
 <body ng-app="moneyApp">
   <div ng-cloak layout="row" layout-align="center">
-    <md-card flex="50">
+    <md-card flex-xs flex-gt-xs="50">
       <md-toolbar class="md-theme-light" ng-controller="ToolbarCtrl as toolbarCtrl" ng-show="toolbarCtrl.state.current.name != 'home'">
         <div class="md-toolbar-tools">
           <h1 class="md-toolbar-tools" layout-align="None center">
@@ -45,9 +55,9 @@
           </md-button>
           <md-button class="md-icon-button" aria-label="Favorite" ng-click="toolbarCtrl.goToPage(1)">
             <md-tooltip md-direction="bottom">
-              Thong ke
+              Vi tien
             </md-tooltip>
-            <md-icon md-svg-icon="/img/ic_pie_chart_white_24px.svg" style="color: greenyellow;"></md-icon>
+            <md-icon md-svg-icon="/img/ic_wallet_white_24px.svg" style="color: greenyellow;"></md-icon>
           </md-button>
           <md-button class="md-icon-button" aria-label="Favorite" ng-click="toolbarCtrl.goToPage(2)">
             <md-tooltip md-direction="bottom">
