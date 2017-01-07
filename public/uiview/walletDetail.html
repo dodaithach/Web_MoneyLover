@@ -1,0 +1,64 @@
+<div style="margin-left:20px;margin-right:20px;" ng-hide="walletDetailCtrl.isPending">
+  <div ng-hide="walletDetailCtrl.isNotify">
+    <div layout="row" layout-align="end" style="margin-bottom: 10px; margin-top: 5px; color: #F44336;" ng-show="walletDetailCtrl.isMiniNotify">
+      {{walletDetailCtrl.miniNotifyMsg}}
+    </div>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">
+        Ten vi
+      </md-subheader>
+      <md-list-item>
+        <img ng-src="/img/ic_wallet1.png" class="md-avatar" />
+        <md-input-container style="margin-top:30px;margin-left:15px;">
+          <input required ng-model="walletDetailCtrl.wallet.name" placeholder="Ten vi">
+        </md-input-container>
+      </md-list-item>
+    </md-list>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">
+        Tien
+      </md-subheader>
+      <md-list-item>
+        <img ng-src="/img/ic_money.png" class="md-avatar" />
+        <md-input-container style="margin-top:30px;margin-left:15px;">
+          <input required ng-model="walletDetailCtrl.wallet.money" placeholder="So tien">
+        </md-input-container>
+      </md-list-item>
+    </md-list>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">
+        Nguoi so huu
+      </md-subheader>
+      <md-list-item>
+        <img ng-src="{{walletDetailCtrl.user_avatar}}" class="md-avatar" />
+        <md-input-container style="margin-top:30px;margin-left:15px;">
+          <input required ng-model="walletDetailCtrl.user.name" placeholder="Nguoi so huu" disabled>
+        </md-input-container>
+      </md-list-item>
+    </md-list>
+
+    <div layout="row" layout-align="end" style="margin-bottom:20px;">
+      <md-button ng-click="walletDetailCtrl.cancel()">Huy</md-button>
+      <md-button ng-click="walletDetailCtrl.delete()" class="md-warn" ng-show="walletDetailCtrl.isShowDelBtn">Xoa</md-button>
+      <md-button ng-click="walletDetailCtrl.save()" class="md-primary">Luu</md-button>
+    </div>
+  </div>
+
+  <div ng-show="walletDetailCtrl.isNotify > 0">
+    <div layout="row" layout-align="center center" style="margin-bottom: 20px; margin-top: 20px; color: #F44336;"
+          ng-show="walletDetailCtrl.isNotify == 1">
+      {{walletDetailCtrl.notifyMsg}}
+    </div>
+    <div layout="row" layout-align="center center" style="margin-bottom: 20px; margin-top: 20px; color: #1b7e7d;"
+          ng-show="walletDetailCtrl.isNotify == 2">
+      {{walletDetailCtrl.notifyMsg}}
+    </div>
+    <div layout="row" layout-align="end" style="margin-bottom:10px;">
+      <md-button ng-click="walletDetailCtrl.cancel()">Quay lai</md-button>
+    </div>
+  </div>
+</div>
+
+<div layout="row" layout-sm="column" layout-align="space-around center" ng-show="walletDetailCtrl.isPending" style="margin-top:20px;margin-bottom:20px;">
+    <md-progress-circular md-mode="indeterminate" md-diameter="60" class="md-accent"></md-progress-circular>
+</div>

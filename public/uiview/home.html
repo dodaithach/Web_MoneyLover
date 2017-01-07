@@ -4,15 +4,22 @@
   </h1>
 </md-toolbar>
 
-<md-card-content>
+<md-card-content >
+  <div layout="row" layout-align="end" style="margin-bottom: 5px; margin-top: 5px; color: #F44336;" ng-show="loginCtrl.isNotify">
+    {{loginCtrl.notifyMsg}}
+  </div>
+
   <div layout="column" layout-align="center center">
     <img src="/img/sv180.png">
     <h4 style="color: #1b7e7d;margin-top:12px;margin-bottom:0px;width:320px">Quan ly va ket noi chi tieu nhom hieu qua</h4>
     <p style="margin-top:6px;width:320px">Meo: dang nhap de dong bo du lieu chi tieu va ket noi voi cac tai khoan khac</p>
 
-    <div class="row">
-      <md-button class="md-raised md-warn" ng-click="loginCtrl.login()">Google</md-button>
-      <md-button class="md-raised md-primary" style="background-color:#3F51B5;width:100px" ng-click="loginCtrl.login()">Facebook</md-button>
+    <div layout="row" ng-hide="loginCtrl.isPending">
+      <div id="my-signin2" ng-click="loginCtrl.logIn()"></div>
+    </div>
+
+    <div layout="row" layout-sm="column" layout-align="space-around" ng-show="loginCtrl.isPending">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
   </div>
 </md-card-content>

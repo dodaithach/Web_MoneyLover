@@ -16,8 +16,6 @@ var app = angular.module('moneyApp', ['ngMaterial', 'ui.router'])
 
 app.config(['$stateProvider', '$urlRouterProvider',
     function($stateProvider, $urlRouterProvider) {
-        console.log('angular app is being configed');
-
         $stateProvider
         .state('home', {
             url : '/home',
@@ -43,6 +41,16 @@ app.config(['$stateProvider', '$urlRouterProvider',
             url : '/transaction',
             templateUrl : '/uiview/transaction.html',
             controller : 'TransactionCtrl as transactionCtrl',
+        })
+        .state('wallet', {
+            url : '/wallet',
+            templateUrl : '/uiview/wallet.html',
+            controller : 'WalletCtrl as walletCtrl',
+        })
+        .state('walletDetail', {
+            url : '/walletDetail',
+            templateUrl : '/uiview/walletDetail.html',
+            controller : 'WalletDetailCtrl as walletDetailCtrl',
         })
 
         $urlRouterProvider.otherwise('home');

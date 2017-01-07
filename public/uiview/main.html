@@ -1,54 +1,57 @@
-<div style="margin-left:20px;margin-right:20px;">
-  <md-list flex>
-    <md-subheader class="md-no-sticky">
-      <div layout="row" layout-align="space-between center">
-      Chi tieu trong ngay
-      <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+<div ng-hide="mainCtrl.isPending">
+  <div style="margin-left:20px;margin-right:20px;">
+    <md-list flex>
+      <md-subheader class="md-no-sticky">
+        <div layout="row" layout-align="space-between center">
+        Chi tieu trong ngay
+        <md-datepicker md-placeholder="Enter date" ng-model="mainCtrl.currentDate" ng-change="mainCtrl.dateChange()"></md-datepicker>
+        </div>
+      </md-subheader>
+      <div layout="row" layout-align="end" style="margin-bottom: 10px; margin-top: 5px; color: #F44336;" ng-show="mainCtrl.isNotify">
+        {{mainCtrl.notifyMsg}}
       </div>
-    </md-subheader>
-    <md-list-item class="md-2-line">
-      <img ng-src="/img/ic_money.png" class="md-avatar" />
-      <div class="md-list-item-text">
-        <h3>So du dau</h3>
-        <h4>200,000</h4>
-      </div>
-    </md-list-item>
-    <md-list-item class="md-2-line">
-      <img ng-src="/img/ic_money.png" class="md-avatar" />
-      <div class="md-list-item-text">
-        <h3>So du cuoi</h3>
-        <h4>200,000</h4>
-      </div>
-    </md-list-item>
-  </md-list>
+      <div ng-hide="mainCtrl.isNotify">
+          <md-list-item class="md-2-line">
+            <img ng-src="/img/ic_money.png" class="md-avatar" />
+            <div class="md-list-item-text">
+              <h3>So du dau</h3>
+              <h4>200,000</h4>
+            </div>
+          </md-list-item>
+          <md-list-item class="md-2-line">
+            <img ng-src="/img/ic_money.png" class="md-avatar" />
+            <div class="md-list-item-text">
+              <h3>So du cuoi</h3>
+              <h4>200,000</h4>
+            </div>
+          </md-list-item>
+        </md-list>
 
-  <md-list flex>
-    <md-subheader class="md-no-sticky">Chi tiet</md-subheader>
-    <md-list-item class="md-3-line" ng-click="mainCtrl.transactionClicked()">
-      <img ng-src="/img/ic_tiendien.png" class="md-avatar" />
-      <div class="md-list-item-text" layout="column">
-        <h3>Tien dien</h3>
-        <h4>200,000</h4>
+        <md-list flex>
+          <md-subheader class="md-no-sticky">
+            <div layout="row" layout-align="space-between center">
+              <span>Chi tiet</span>
+              <span ng-show="mainCtrl.transactionList.length == 0" style="color:#1b7e7d;">Khong co chi tieu nao</span>
+            </div>
+          </md-subheader>
+          <md-list-item class="md-3-line" ng-click="mainCtrl.transactionClicked($index)" ng-repeat="transaction in mainCtrl.transactionList">
+            <img ng-src="/img/ic_tiendien.png" class="md-avatar" />
+            <div class="md-list-item-text" layout="column">
+              <h3>{{transaction.note}}</h3>
+              <h4>{{transaction.price}}</h4>
+            </div>
+          </md-list-item>
+        </md-list>
       </div>
-    </md-list-item>
-    <md-list-item class="md-3-line" ng-click="null">
-      <img ng-src="/img/ic_tiendien.png" class="md-avatar" />
-      <div class="md-list-item-text" layout="column">
-        <h3>Tien dien</h3>
-        <h4>200,000</h4>
-      </div>
-    </md-list-item>
-    <md-list-item class="md-3-line" ng-click="null">
-      <img ng-src="/img/ic_tiendien.png" class="md-avatar" />
-      <div class="md-list-item-text" layout="column">
-        <h3>Tien dien</h3>
-        <h4>200,000</h4>
-      </div>
-    </md-list-item>
-  </md-list>
-</div>
 
-<md-fab-toolbar md-direction="left">
+      <div layout="row" layout-align="end">
+        <md-button class="md-fab md-accent" layout-align="end" ng-click="mainCtrl.newTransaction()">
+          <md-icon md-svg-src="/img/ic_add_white_24px.svg"></md-icon>
+        </md-button>
+      </div>
+  </div>
+
+<!-- <md-fab-toolbar md-direction="left">
   <md-fab-trigger class="align-with-text">
     <md-button aria-label="menu" class="md-fab">
       <md-icon md-svg-src="/img/ic_add_white_24px.svg"></md-icon>
@@ -57,7 +60,7 @@
 
   <md-toolbar>
     <md-fab-actions class="md-toolbar-tools">
-      <md-button aria-label="Tien ra" class="md-icon-button">
+      <md-button aria-label="Tien ra" class="md-icon-button" ng-click="mainCtrl.newTransaction()">
         <md-icon md-svg-src="/img/ic_outcome_24px.svg"></md-icon>
       </md-button>
       <md-button aria-label="Tien vao" class="md-icon-button">
@@ -65,4 +68,10 @@
       </md-button>
     </md-fab-actions>
   </md-toolbar>
-</md-fab-toolbar>
+</md-fab-toolbar> -->
+
+</div>
+
+<div layout="row" layout-sm="column" layout-align="space-around center" ng-show="mainCtrl.isPending" style="margin-top:20px;margin-bottom:20px;">
+    <md-progress-circular md-mode="indeterminate" md-diameter="60" class="md-accent"></md-progress-circular>
+</div>

@@ -1,0 +1,35 @@
+<div style="margin-left:20px;margin-right:20px;">
+	<md-list flex>
+	  <md-subheader class="md-no-sticky">
+	    <div layout="row" layout-align="space-between center">
+	    	<span>Danh sach vi</span>
+	    	<span ng-show="walletCtrl.walletList.length == 0" style="color:#1b7e7d;">Khong co vi nao</span>
+	    </div>
+	  </md-subheader>
+	  <div ng-hide="walletCtrl.isPending || walletCtrl.isNotify">
+		  <md-list-item class="md-2-line" ng-click="walletCtrl.goWalletDetail($index)" ng-repeat="wallet in walletCtrl.walletList">
+		    <img ng-src="/img/ic_wallet2.png" class="md-avatar" />
+		    <div class="md-list-item-text">
+		      <h3>{{wallet.name}}</h3>
+		      <h4>{{wallet.money}}</h4>
+		    </div>
+		  </md-list-item>
+
+		  <div layout="row" layout-align="end">
+	        <md-button class="md-fab md-accent" layout-align="end" ng-click="walletCtrl.newWallet()">
+	          <md-icon md-svg-src="/img/ic_add_white_24px.svg"></md-icon>
+	        </md-button>
+	      </div>
+	  </div>
+	</md-list>
+
+	<div layout="row" layout-align="center center" style="margin-bottom: 10px; margin-top: 5px; color: #F44336;" 
+			ng-show="walletCtrl.isNotify" ng-hide="walletCtrl.isPending">
+      {{walletCtrl.notifyMsg}}
+    </div>
+
+	<div layout="row" layout-sm="column" layout-align="space-around center" ng-show="walletCtrl.isPending" 
+			style="margin-top:20px;margin-bottom:20px;">
+    <md-progress-circular md-mode="indeterminate" md-diameter="60" class="md-accent"></md-progress-circular>
+</div>
+</div>

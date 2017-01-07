@@ -1,68 +1,104 @@
-<div style="margin-left:20px;margin-right:20px;">
-  <md-list flex>
-    <md-subheader class="md-no-sticky">
-      Chi tieu trong ngay
-    </md-subheader>
-    <md-list-item style="padding-top:25px;padding-bottom:20px;">
-      <img ng-src="/img/ic_date.png" class="md-avatar" />
-      <md-datepicker ng-model="myDate" md-placeholder="Chon ngay"></md-datepicker>
-    </md-list-item>
-  </md-list>
-  <md-list flex>
-    <md-subheader class="md-no-sticky">
-      So tien
-    </md-subheader>
-    <md-list-item>
-      <img ng-src="/img/ic_money.png" class="md-avatar" />
-      <md-input-container style="margin-top:30px;margin-left:15px;">
-        <input ng-model="user.address2" placeholder="Nhap so tien">
-      </md-input-container>
-    </md-list-item>
-  </md-list>
-  <md-list flex>
-    <md-subheader class="md-no-sticky">
-      Nhom
-    </md-subheader>
-    <md-list-item>
-      <img ng-src="/img/sv60.png" class="md-avatar" />
-      <md-input-container style="margin-top:30px;margin-left:15px;margin-bottom:30px;">
-        <md-select ng-model="transactionCtrl.type">
-          <md-option ng-repeat="type in transactionCtrl.typeList" value="{{type}}">
-            {{type}}
-          </md-option>
-        </md-select>
-      </md-input-container>
-    </md-list-item>
-  </md-list>
-  <md-list flex>
-    <md-subheader class="md-no-sticky">
-      Ghi chu
-    </md-subheader>
-    <md-list-item>
-      <img ng-src="/img/ic_note.png" class="md-avatar" />
-      <md-input-container style="margin-top:30px;margin-left:15px;">
-        <input ng-model="user.address2" placeholder="Nhap so tien">
-      </md-input-container>
-    </md-list-item>
-  </md-list>
-  <md-list flex>
-    <md-subheader class="md-no-sticky">
-      Loai thanh toan
-    </md-subheader>
-    <md-list-item>
-      <img ng-src="/img/ic_wallet1.png" class="md-avatar" />
-      <md-input-container style="margin-top:30px;margin-left:15px;margin-bottom:30px;">
-        <md-select ng-model="transactionCtrl.type">
-          <md-option ng-repeat="type in transactionCtrl.typeList" value="{{type}}">
-            {{type}}
-          </md-option>
-        </md-select>
-      </md-input-container>
-    </md-list-item>
-  </md-list>
+<div style="margin-left:20px;margin-right:20px;" ng-hide="transactionCtrl.isPending">
+  <div ng-hide="transactionCtrl.isNotify">
+    <div layout="row" layout-align="end" style="margin-bottom: 10px; margin-top: 5px; color: #F44336;" ng-show="transactionCtrl.isMiniNotify">
+      {{transactionCtrl.miniNotifyMsg}}
+    </div>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">
+        Chi tieu trong ngay
+      </md-subheader>
+      <md-list-item style="padding-top:25px;padding-bottom:20px;">
+        <img ng-src="/img/ic_date.png" class="md-avatar" />
+        <md-datepicker required ng-model="transactionCtrl.date" md-placeholder="Chon ngay"></md-datepicker>
+      </md-list-item>
+    </md-list>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">
+        So tien
+      </md-subheader>
+      <md-list-item>
+        <img ng-src="/img/ic_money.png" class="md-avatar" />
+        <md-input-container style="margin-top:30px;margin-left:15px;">
+          <input required ng-model="transactionCtrl.transaction.price" placeholder="So tien">
+        </md-input-container>
+      </md-list-item>
+    </md-list>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">
+        Nhom
+      </md-subheader>
+      <md-list-item>
+        <img ng-src="/img/sv60.png" class="md-avatar" />
+        <md-input-container style="margin-top:30px;margin-left:15px;margin-bottom:30px;">
+          <md-select required ng-model="transactionCtrl.transaction.category_id">
+            <md-option ng-repeat="category in transactionCtrl.categoryList" ng-value="category._id">
+              {{category.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </md-list-item>
+    </md-list>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">
+        Dia diem
+      </md-subheader>
+      <md-list-item>
+        <img ng-src="/img/ic_money.png" class="md-avatar" />
+        <md-input-container style="margin-top:30px;margin-left:15px;">
+          <input required ng-model="transactionCtrl.transaction.location" placeholder="Dia diem">
+        </md-input-container>
+      </md-list-item>
+    </md-list>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">
+        Ghi chu
+      </md-subheader>
+      <md-list-item>
+        <img ng-src="/img/ic_note.png" class="md-avatar" />
+        <md-input-container style="margin-top:30px;margin-left:15px;">
+          <input required ng-model="transactionCtrl.transaction.note" placeholder="Ghi chu">
+        </md-input-container>
+      </md-list-item>
+    </md-list>
+    <md-list flex>
+      <md-subheader class="md-no-sticky">
+        Loai thanh toan
+      </md-subheader>
+      <md-list-item>
+        <img ng-src="/img/ic_wallet1.png" class="md-avatar" />
+        <md-input-container style="margin-top:30px;margin-left:15px;margin-bottom:30px;">
+          <md-select required ng-model="transactionCtrl.transaction.wallet_id">
+            <md-option ng-repeat="wallet in transactionCtrl.walletList" ng-value="wallet._id">
+              {{wallet.name}}
+            </md-option>
+          </md-select>
+        </md-input-container>
+      </md-list-item>
+    </md-list>
 
-  <div layout="row" layout-align="end" style="margin-bottom:20px;">
-    <md-button>Huy</md-button>
-    <md-button class="md-primary">Luu</md-button>
+    <div layout="row" layout-align="end" style="margin-bottom:20px;">
+      <md-button ng-click="transactionCtrl.cancel()">Huy</md-button>
+      <md-button ng-click="transactionCtrl.delete()" class="md-warn"
+                 ng-show="transactionCtrl.isShowDelBtn">Xoa</md-button>
+      <md-button ng-click="transactionCtrl.save()" class="md-primary">Luu</md-button>
+    </div>
   </div>
+
+  <div ng-show="transactionCtrl.isNotify > 0">
+    <div layout="row" layout-align="center center" style="margin-bottom: 20px; margin-top: 20px; color: #F44336;"
+          ng-show="transactionCtrl.isNotify == 1">
+      {{transactionCtrl.notifyMsg}}
+    </div>
+    <div layout="row" layout-align="center center" style="margin-bottom: 20px; margin-top: 20px; color: #1b7e7d;"
+          ng-show="transactionCtrl.isNotify == 2">
+      {{transactionCtrl.notifyMsg}}
+    </div>
+    <div layout="row" layout-align="end" style="margin-bottom:10px;">
+      <md-button ng-click="transactionCtrl.cancel()">Quay lai</md-button>
+    </div>
+  </div>
+</div>
+
+<div layout="row" layout-sm="column" layout-align="space-around center" ng-show="transactionCtrl.isPending" style="margin-top:20px;margin-bottom:20px;">
+    <md-progress-circular md-mode="indeterminate" md-diameter="60" class="md-accent"></md-progress-circular>
 </div>
