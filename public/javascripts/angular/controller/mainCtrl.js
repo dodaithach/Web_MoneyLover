@@ -14,6 +14,8 @@ angular.module('moneyApp')
     this.endAmound = 0;
     this.transactionList = [];
 
+    this.finalMoney = 0;
+
     if (!authService.isLoggedIn()) {
     	$state.go('home');
     }
@@ -54,6 +56,13 @@ angular.module('moneyApp')
                         if (transactionList) {
                             for (var i = 0; i < transactionList.length; i++) {
                                 ctrl.transactionList.push(transactionList[i]);
+
+                                if (transactionList[i].type_id == 0 || transactionList[i].type_id == 2) {
+                                    ctrl.finalMoney += transactionList[i].money;
+                                }
+                                else {
+                                    ctrl.finalMoney -= transactionList[i].money;
+                                }
                             }
                         }
                     }).error(function(err) {
