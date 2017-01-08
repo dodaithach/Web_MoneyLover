@@ -32,9 +32,10 @@ angular.module('moneyApp')
 
     this.reset = function() {
         console.log('mainCtrl.reset()');
-        this.beginAmount = 0;
-        this.endAmound = 0;
-        this.transactionList = [];
+        ctrl.finalMoney = 0;
+        ctrl.beginAmount = 0;
+        ctrl.endAmound = 0;
+        ctrl.transactionList = [];
     }
 
     this.loadData = function(currentDate) {
@@ -58,10 +59,10 @@ angular.module('moneyApp')
                                 ctrl.transactionList.push(transactionList[i]);
 
                                 if (transactionList[i].type_id == 0 || transactionList[i].type_id == 2) {
-                                    ctrl.finalMoney += transactionList[i].money;
+                                    ctrl.finalMoney += transactionList[i].price;
                                 }
                                 else {
-                                    ctrl.finalMoney -= transactionList[i].money;
+                                    ctrl.finalMoney -= transactionList[i].price;
                                 }
                             }
                         }
