@@ -1,11 +1,27 @@
 'use strict';
 angular.module('moneyApp')
-.service('authService', ['$rootScope', '$http', '$window', '$state', '$timeout', 'serverService', function($rootScope, $http, $window, $state, $timeout, serverService) {
+.service('authService', ['$rootScope', '$http', '$window', '$state', '$timeout', 'serverService',
+							function($rootScope, $http, $window, $state, $timeout, serverService) {
 	console.log('autheService loaded');
 	var service = this;
 
 	this.walletList = [];
 	this.userInfo = {};
+
+	this.socketId = "";
+
+	this.saveSocketId = function(id) {
+		service.socketId = id;
+
+		$window.localStorage['love-money-app-socket'] = service.socketId;
+	}
+
+	this.getSocketId = function() {
+		if (!angular.equals(service.socketId, ""))
+			return service.socketId;
+
+		service.socketId = $window.localStorage['love-money-app-socket'];
+	}
 
 	this.saveUserInfo = function(data) {
 		service.userInfo = data;
@@ -67,6 +83,7 @@ angular.module('moneyApp')
 		$window.localStorage.removeItem('love-money-app-mail');
 		$window.localStorage.removeItem('love-money-app-name');
 		$window.localStorage.removeItem('love-money-app-token');
+		$window.localStorage.removeItem('love-money-app-socket');
 	}
 
 	this.logIn = function(user) {

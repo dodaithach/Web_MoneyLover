@@ -5,27 +5,27 @@
     </div>
     <md-list flex>
       <md-subheader class="md-no-sticky">
-        Chi tieu trong ngay
+        Chi tiêu trong ngày
       </md-subheader>
       <md-list-item style="padding-top:25px;padding-bottom:20px;">
         <img ng-src="/img/ic_date.png" class="md-avatar" />
-        <md-datepicker required ng-model="transactionCtrl.date" md-placeholder="Chon ngay"></md-datepicker>
+        <md-datepicker required ng-model="transactionCtrl.date" md-placeholder="Chọn ngày"></md-datepicker>
       </md-list-item>
     </md-list>
     <md-list flex>
       <md-subheader class="md-no-sticky">
-        So tien
+        Số tiền
       </md-subheader>
       <md-list-item>
         <img ng-src="/img/ic_money.png" class="md-avatar" />
         <md-input-container style="margin-top:30px;margin-left:15px;">
-          <input required ng-model="transactionCtrl.transaction.price" placeholder="So tien">
+          <input required ng-model="transactionCtrl.transaction.price" placeholder="Số tiền">
         </md-input-container>
       </md-list-item>
     </md-list>
     <md-list flex>
       <md-subheader class="md-no-sticky">
-        Nhom
+        Nhóm
       </md-subheader>
       <md-list-item>
         <img ng-src="/img/sv60.png" class="md-avatar" />
@@ -40,29 +40,29 @@
     </md-list>
     <md-list flex>
       <md-subheader class="md-no-sticky">
-        Dia diem
+        Địa điểm
       </md-subheader>
       <md-list-item>
         <img ng-src="/img/ic_money.png" class="md-avatar" />
         <md-input-container style="margin-top:30px;margin-left:15px;">
-          <input required ng-model="transactionCtrl.transaction.location" placeholder="Dia diem">
+          <input required ng-model="transactionCtrl.transaction.location" placeholder="Địa điểm">
         </md-input-container>
       </md-list-item>
     </md-list>
     <md-list flex>
       <md-subheader class="md-no-sticky">
-        Ghi chu
+        Ghi chú
       </md-subheader>
       <md-list-item>
         <img ng-src="/img/ic_note.png" class="md-avatar" />
         <md-input-container style="margin-top:30px;margin-left:15px;">
-          <input required ng-model="transactionCtrl.transaction.note" placeholder="Ghi chu">
+          <input required ng-model="transactionCtrl.transaction.note" placeholder="Ghi chú">
         </md-input-container>
       </md-list-item>
     </md-list>
     <md-list flex>
       <md-subheader class="md-no-sticky">
-        Loai thanh toan
+        Loại thanh toán
       </md-subheader>
       <md-list-item>
         <img ng-src="/img/ic_wallet1.png" class="md-avatar" />
@@ -77,10 +77,10 @@
     </md-list>
 
     <div layout="row" layout-align="end" style="margin-bottom:20px;">
-      <md-button ng-click="transactionCtrl.cancel()">Huy</md-button>
+      <md-button ng-click="transactionCtrl.cancel()">Hủy</md-button>
       <md-button ng-click="transactionCtrl.delete()" class="md-warn"
-                 ng-show="transactionCtrl.isShowDelBtn">Xoa</md-button>
-      <md-button ng-click="transactionCtrl.save()" class="md-primary">Luu</md-button>
+                 ng-show="transactionCtrl.isShowDelBtn">Xóa</md-button>
+      <md-button ng-click="transactionCtrl.save()" class="md-primary">Lưu</md-button>
     </div>
   </div>
 
@@ -94,7 +94,7 @@
       {{transactionCtrl.notifyMsg}}
     </div>
     <div layout="row" layout-align="end" style="margin-bottom:10px;">
-      <md-button ng-click="transactionCtrl.cancel()">Quay lai</md-button>
+      <md-button ng-click="transactionCtrl.cancel()">Quay lại</md-button>
     </div>
   </div>
 </div>

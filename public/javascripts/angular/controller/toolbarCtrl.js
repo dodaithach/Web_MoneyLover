@@ -3,7 +3,7 @@ angular.module('moneyApp')
 .controller('ToolbarCtrl', ['$rootScope', '$http', '$state', 'authService', function($rootScope, $http, $state, authService) {
     var ctrl = this;
 
-    this.titles = ['Tinh hinh chi tieu', 'Vi tien', 'Mo rong'];
+    this.titles = ['Tình hình chi tiêu', 'Ví tiền', 'Mở rộng'];
     this.id = 0;
     this.state = $state;
 

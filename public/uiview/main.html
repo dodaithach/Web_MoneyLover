@@ -3,7 +3,7 @@
     <md-list flex>
       <md-subheader class="md-no-sticky">
         <div layout="row" layout-align="space-between center">
-        Chi tieu trong ngay
+        Chi tiêu trong ngày
         <md-datepicker md-placeholder="Enter date" ng-model="mainCtrl.currentDate" ng-change="mainCtrl.dateChange()"></md-datepicker>
         </div>
       </md-subheader>
@@ -14,14 +14,7 @@
           <md-list-item class="md-2-line">
             <img ng-src="/img/ic_money.png" class="md-avatar" />
             <div class="md-list-item-text">
-              <h3>So du dau</h3>
-              <h4>200,000</h4>
-            </div>
-          </md-list-item>
-          <md-list-item class="md-2-line">
-            <img ng-src="/img/ic_money.png" class="md-avatar" />
-            <div class="md-list-item-text">
-              <h3>So du cuoi</h3>
+              <h3>Mức chi tiêu trong ngày</h3>
               <h4>200,000</h4>
             </div>
           </md-list-item>
@@ -30,8 +23,8 @@
         <md-list flex>
           <md-subheader class="md-no-sticky">
             <div layout="row" layout-align="space-between center">
-              <span>Chi tiet</span>
-              <span ng-show="mainCtrl.transactionList.length == 0" style="color:#1b7e7d;">Khong co chi tieu nao</span>
+              <span>Chi tiết</span>
+              <span ng-show="mainCtrl.transactionList.length == 0" style="color:#1b7e7d;">Không có chi tiêu nào</span>
             </div>
           </md-subheader>
           <md-list-item class="md-3-line" ng-click="mainCtrl.transactionClicked($index)" ng-repeat="transaction in mainCtrl.transactionList">
@@ -50,25 +43,6 @@
         </md-button>
       </div>
   </div>
-
-<!-- <md-fab-toolbar md-direction="left">
-  <md-fab-trigger class="align-with-text">
-    <md-button aria-label="menu" class="md-fab">
-      <md-icon md-svg-src="/img/ic_add_white_24px.svg"></md-icon>
-    </md-button>
-  </md-fab-trigger>
-
-  <md-toolbar>
-    <md-fab-actions class="md-toolbar-tools">
-      <md-button aria-label="Tien ra" class="md-icon-button" ng-click="mainCtrl.newTransaction()">
-        <md-icon md-svg-src="/img/ic_outcome_24px.svg"></md-icon>
-      </md-button>
-      <md-button aria-label="Tien vao" class="md-icon-button">
-        <md-icon md-svg-src="/img/ic_income_24px.svg"></md-icon>
-      </md-button>
-    </md-fab-actions>
-  </md-toolbar>
-</md-fab-toolbar> -->
 
 </div>
 

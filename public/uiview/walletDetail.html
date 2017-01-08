@@ -10,37 +10,37 @@
       <md-list-item>
         <img ng-src="/img/ic_wallet1.png" class="md-avatar" />
         <md-input-container style="margin-top:30px;margin-left:15px;">
-          <input required ng-model="walletDetailCtrl.wallet.name" placeholder="Ten vi">
+          <input required ng-model="walletDetailCtrl.wallet.name" placeholder="Tên ví">
         </md-input-container>
       </md-list-item>
     </md-list>
     <md-list flex>
       <md-subheader class="md-no-sticky">
-        Tien
+        Tiền
       </md-subheader>
       <md-list-item>
         <img ng-src="/img/ic_money.png" class="md-avatar" />
         <md-input-container style="margin-top:30px;margin-left:15px;">
-          <input required ng-model="walletDetailCtrl.wallet.money" placeholder="So tien">
+          <input required ng-model="walletDetailCtrl.wallet.money" placeholder="Số tiền">
         </md-input-container>
       </md-list-item>
     </md-list>
     <md-list flex>
       <md-subheader class="md-no-sticky">
-        Nguoi so huu
+        Người sở hữu
       </md-subheader>
       <md-list-item>
         <img ng-src="{{walletDetailCtrl.user_avatar}}" class="md-avatar" />
         <md-input-container style="margin-top:30px;margin-left:15px;">
-          <input required ng-model="walletDetailCtrl.user.name" placeholder="Nguoi so huu" disabled>
+          <input required ng-model="walletDetailCtrl.user.name" placeholder="Người sở hữu" disabled>
         </md-input-container>
       </md-list-item>
     </md-list>
 
     <div layout="row" layout-align="end" style="margin-bottom:20px;">
-      <md-button ng-click="walletDetailCtrl.cancel()">Huy</md-button>
-      <md-button ng-click="walletDetailCtrl.delete()" class="md-warn" ng-show="walletDetailCtrl.isShowDelBtn">Xoa</md-button>
-      <md-button ng-click="walletDetailCtrl.save()" class="md-primary">Luu</md-button>
+      <md-button ng-click="walletDetailCtrl.cancel()">Hủy</md-button>
+      <md-button ng-click="walletDetailCtrl.delete()" class="md-warn" ng-show="walletDetailCtrl.isShowDelBtn">Xóa</md-button>
+      <md-button ng-click="walletDetailCtrl.save()" class="md-primary">Lưu</md-button>
     </div>
   </div>
 
@@ -54,7 +54,7 @@
       {{walletDetailCtrl.notifyMsg}}
     </div>
     <div layout="row" layout-align="end" style="margin-bottom:10px;">
-      <md-button ng-click="walletDetailCtrl.cancel()">Quay lai</md-button>
+      <md-button ng-click="walletDetailCtrl.cancel()">Quay lại</md-button>
     </div>
   </div>
 </div>

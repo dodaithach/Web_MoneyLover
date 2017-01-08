@@ -75,15 +75,15 @@ angular.module('moneyApp')
 		$http.delete(reqUrl).success(function(data) {
 			if (data.error) {
 				console.log(data);
-				ctrl.showNotify(1, 'Xoa vi khong thanh cong');
+				ctrl.showNotify(1, 'Xóa ví không thành công');
 			}
 			else {
-				ctrl.showNotify(2, 'Xoa vi thanh cong');
+				ctrl.showNotify(2, 'Xóa ví thành công');
 			}
 
 			ctrl.pending(false);
 		}).error(function(err) {
-			ctrl.showNotify(1, 'Co loi xay ra');
+			ctrl.showNotify(1, 'Có lỗi xảy ra');
 			ctrl.pending(false);
 		});
 	}
@@ -93,7 +93,7 @@ angular.module('moneyApp')
 		ctrl.pending(true);
 
 		if (!ctrl.checkInput()) {
-			ctrl.showMiniNotify('Vui long dien du thong tin');
+			ctrl.showMiniNotify('Vui lòng điền đày đủ thông tin');
 			ctrl.pending(false);
 			return;
 		}
@@ -109,15 +109,15 @@ angular.module('moneyApp')
 			$http.post(reqUrl, params).success(function(data) {
 				if (data.error) {
 					console.log(data);
-					ctrl.showNotify(1, 'Tao vi khong thanh cong');
+					ctrl.showNotify(1, 'Tạo ví không thành công');
 				}
 				else {
-					ctrl.showNotify(2, 'Tao vi thanh cong');
+					ctrl.showNotify(2, 'Tạo ví thành công');
 				}
 
 				ctrl.pending(false);
 			}).error(function(err) {
-				ctrl.showNotify(1, 'Co loi xay ra');
+				ctrl.showNotify(1, 'Có lỗi xảy ra');
 				ctrl.pending(false);
 			});	
 		}
@@ -126,15 +126,15 @@ angular.module('moneyApp')
 			$http.put(reqUrl, params).success(function(data) {
 				if (data.error) {
 					console.log(data);
-					ctrl.showNotify(1, 'Cap nhat vi khong thanh cong');
+					ctrl.showNotify(1, 'Cập nhật ví không thành công');
 				}
 				else {
-					ctrl.showNotify(2, 'Cap nhat vi thanh cong');
+					ctrl.showNotify(2, 'Cập nhật ví thành công');
 				}
 
 				ctrl.pending(false);
 			}).error(function(err) {
-				ctrl.showNotify(1, 'Co loi xay ra');
+				ctrl.showNotify(1, 'Có lỗi xảy ra');
 				ctrl.pending(false);
 			});
 		}

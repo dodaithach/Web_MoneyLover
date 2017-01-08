@@ -57,7 +57,7 @@ angular.module('moneyApp')
                             }
                         }
                     }).error(function(err) {
-                        ctrl.showNotify('Khong the tai duoc du lieu');
+                        ctrl.showNotify('Không tải được dữ liệu');
                         ctrl.isPending = false;
                     });
                 }
@@ -65,11 +65,11 @@ angular.module('moneyApp')
 
             if (data.error) {
                 console.log(data);
-                ctrl.showNotify('Khong the tai duoc du lieu');
+                ctrl.showNotify('Không tải được dữ liệu');
                 ctrl.isPending = false;
             }
         }).error(function(err) {
-            ctrl.showNotify('Co loi xay ra');
+            ctrl.showNotify('Có lỗi xảy ra');
             ctrl.isPending = false;
         });
     }

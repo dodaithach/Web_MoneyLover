@@ -37,11 +37,11 @@ angular.module('moneyApp')
     		}
 
     		if (data.error) {
-    			ctrl.showNotify('Khong the tai danh sach vi');
+    			ctrl.showNotify('Không tải được danh sách ví');
     			ctrl.pending(false);
     		}
     	}).error(function(err) {
-    		ctrl.showNotify('Co loi xay ra');
+    		ctrl.showNotify('Có lỗi xảy ra');
     		ctrl.pending(false);
     	});
     }

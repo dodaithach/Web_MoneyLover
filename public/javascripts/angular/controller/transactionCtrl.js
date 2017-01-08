@@ -98,22 +98,22 @@ angular.module('moneyApp')
 
 	                if (data.error) {
                         console.log(data);
-	                	ctrl.showNotify(1, 'Khong tai duoc du lieu');
+	                	ctrl.showNotify(1, 'Không tải được dữ liệu');
 		    			ctrl.pending(false);
 	                }
 	            }).error(function(err) {
-	            	ctrl.showNotify(1, 'Co loi xay ra');
+	            	ctrl.showNotify(1, 'Có lỗi xảy ra');
 	    			ctrl.pending(false);
 	            });
     		}
 
     		if (data.error) {
                 console.log(data);
-    			ctrl.showNotify(1, 'Khong tai duoc du lieu');
+    			ctrl.showNotify(1, 'Không tải được dữ liệu');
     			ctrl.pending(false);
     		}
     	}).error(function(err) {
-    		ctrl.showNotify(1, 'Co loi xay ra');
+    		ctrl.showNotify(1, 'Có lỗi xảy ra');
 			ctrl.pending(false);
     	});
     }
@@ -149,22 +149,22 @@ angular.module('moneyApp')
         $http.delete(reqUrl).success(function(data) {
         	if (data.error) {
                 console.log(data);
-				ctrl.showNotify(1, 'Xoa khong thanh cong');
+				ctrl.showNotify(1, 'Xóa không thành công');
 	            ctrl.pending(false);        		
         	}
         	else {
-        		ctrl.showNotify(2, 'Xoa thanh cong');
+        		ctrl.showNotify(2, 'Xóa thành công');
 	            ctrl.pending(false);
         	}
         }).error(function(err) {
-        	ctrl.showNotify(1, 'Co loi xay ra');
+        	ctrl.showNotify(1, 'Có lỗi xảy ra');
         	ctrl.pending(false);
         });
     }
 
     this.save = function() {
         if (!ctrl.checkInput()) {
-            ctrl.showMiniNotify('Vui long dien day du thong tin');
+            ctrl.showMiniNotify('Vui lòng điền đầy đủ thông tin');
             return;
         }
 
@@ -186,15 +186,15 @@ angular.module('moneyApp')
 	            if (data.error) {
                     console.log(data);
 	            	ctrl.pending(false);
-		            ctrl.showNotify(1, 'Tao giao dich khong thanh cong');	
+		            ctrl.showNotify(1, 'Tạo giao dịch không thành công');	
 	            }
 	            else {
 		            ctrl.pending(false);
-		            ctrl.showNotify(2, 'Tao giao dich thanh cong');
+		            ctrl.showNotify(2, 'Tạo giao dịch thành công');
 		        }
 	        }).error(function(err) {
 	            ctrl.pending(false);
-	            ctrl.showNotify(1, 'Co loi xay ra');
+	            ctrl.showNotify(1, 'Có lỗi xảy ra');
 	        });
         }
         else {
@@ -204,15 +204,15 @@ angular.module('moneyApp')
             	if (data.error) {
                     console.log(data);
             		ctrl.pending(false);
-	            	ctrl.showNotify(1, 'Cap nhat khong thanh cong');	
+	            	ctrl.showNotify(1, 'Cập nhật giao dịch không thành công');	
             	}
             	else {
             		ctrl.pending(false);
-	            	ctrl.showNotify(2, 'Cap nhat thanh cong');
+	            	ctrl.showNotify(2, 'Cập nhật giao dịch thành công');
             	}
             }).error(function(err) {
             	ctrl.pending(false);
-            	ctrl.showNotify(1, 'Co loi xay ra');
+            	ctrl.showNotify(1, 'Có lỗi xảy ra');
             });
         }
     }

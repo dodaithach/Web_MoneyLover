@@ -1,6 +1,7 @@
 'use strict';
 angular.module('moneyApp')
-.controller('LoginCtrl', ['$http', '$state', '$timeout', 'authService', function($http, $state, $timeout, authService) {
+.controller('LoginCtrl', ['$http', '$state', '$timeout', 'authService', 'socket', 
+                            function($http, $state, $timeout, authService, socket) {
     console.log('loginCtrl loaded');
 
     var ctrl = this;
@@ -43,19 +44,27 @@ angular.module('moneyApp')
         if (ctrl.isBtnClicked) {
             ctrl.isBtnClicked = false;
             authService.logIn(ctrl.user).success(function(data) {
-                authService.saveUserInfo(data.result);
+                if (data.error) {
+                    ctrl.isPending = false;
+                    ctrl.showNotify('Đăng nhập không thành công');
+                }
+                else {
+                    authService.saveUserInfo(data.result);
+                    ctrl.isPending = false;
+                    $state.go('main');
 
-                ctrl.isPending = false;
-                $state.go('main');
+                    console.log('socket emit: signIn');
+                    // socket.getSocket().emit('signIn', {'user_id':data.result._id});
+                }
             }).error(function(err) {
-                ctrl.showNotify('Dang nhap khong thanh cong');
+                ctrl.showNotify('Đăng nhập không thành công');
                 ctrl.isPending = false;
             });
         }
     }
 
     this.loginFail = function(err) {
-    	ctrl.showNotify('Dang nhap khong thanh cong');
+    	ctrl.showNotify('Đăng nhập không thành công');
     }
 
     this.logIn = function() {
