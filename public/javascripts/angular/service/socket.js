@@ -3,7 +3,7 @@ angular.module('moneyApp')
 .service('socket', ['authService', function(authService) {
 	var service = this;
 
-	this.socket = io.connect('https://knchitieu-baymax13cntn.rhcloud.com',{'secure': true, 'port':3000});
+	// this.socket = io.connect('http://knchitieu-baymax13cntn.rhcloud.com/');
 
 	this.init = function() {
 		service.socket.on('socketID', function(data) {

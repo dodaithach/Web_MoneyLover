@@ -10,4 +10,8 @@ angular.module('moneyApp')
     this.logOut = function() {
     	authService.logOut();
     }
+
+    this.exchangeRate = function() {
+    	$state.go('exchangeRate');
+    }
 }]);

@@ -1,0 +1,28 @@
+<div style="margin-left:20px;margin-right:20px;">
+  <md-list flex>
+    <md-subheader class="md-no-sticky">
+      Tỷ giá ngoại tệ trong ngày
+    </md-subheader>
+    <md-list-item class="md-2-line" ng-repeat="item in exchangeRateCtrl.data" ng-hide="exchangeRateCtrl.isPending || exchangeRateCtrl.isNotify">
+      <img ng-src="/img/ic_exchange.png" class="md-avatar" />
+      <div class="md-list-item-text">
+        <h3>{{item.unit}}</h3>
+        <p>{{item.value}}</p>
+      </div>
+    </md-list-item>
+  </md-list>
+
+  <div layout="row" layout-align="center center" style="margin-bottom: 10px; margin-top: 5px; color: #F44336;" 
+      ng-show="exchangeRateCtrl.isNotify" ng-hide="exchangeRateCtrl.isPending">
+      {{walletCtrl.notifyMsg}}
+    </div>
+
+  <div layout="row" layout-sm="column" layout-align="space-around center" ng-show="exchangeRateCtrl.isPending" 
+      style="margin-top:20px;margin-bottom:20px;">
+      <md-progress-circular md-mode="indeterminate" md-diameter="60" class="md-accent"></md-progress-circular>
+  </div>
+
+  <div layout="row" layout-align="end" style="margin-bottom:10px;">
+    <md-button ng-click="exchangeRateCtrl.cancel()">Quay lại</md-button>
+  </div>
+</div>

@@ -94,7 +94,33 @@ angular.module('moneyApp')
     }
 
     this.newTransaction = function() {
-        transactionService.setTransaction({});
-        $state.go('transaction');
+        console.log('mainCtrl.newTransaction()');
+
+        var reqUrl = serverService.addr + "/walletInfos?token=" + authService.getUserInfo().token;
+        $http.get(reqUrl).success(function(data) {
+            console.log(data);
+
+            if (data.result) {
+                console.log(data.result);
+
+                if (data.result.length == 0) {
+                    ctrl.showNotify('Vui lòng tạo ví trước khi giao dịch');
+                    ctrl.pending(false);
+
+                    return;
+                }
+
+                transactionService.setTransaction({});
+                $state.go('transaction');
+            }
+
+            if (data.error) {
+                ctrl.showNotify('Vui lòng tạo ví trước khi giao dịch');
+                ctrl.pending(false);
+            }
+        }).error(function(err) {
+            ctrl.showNotify('Có lỗi xảy ra');
+            ctrl.pending(false);
+        });
     }
 }]);

@@ -8,7 +8,7 @@
 	  </md-subheader>
 	  <div ng-hide="walletCtrl.isPending || walletCtrl.isNotify">
 		  <md-list-item class="md-2-line" ng-click="walletCtrl.goWalletDetail($index)" ng-repeat="wallet in walletCtrl.walletList">
-		    <img ng-src="/img/ic_wallet2.png" class="md-avatar" />
+		    <img ng-src="img/ic_wallet1.png" class="md-avatar" />
 		    <div class="md-list-item-text">
 		      <h3>{{wallet.name}}</h3>
 		      <h4>{{wallet.money}}</h4>
@@ -30,6 +30,6 @@
 
 	<div layout="row" layout-sm="column" layout-align="space-around center" ng-show="walletCtrl.isPending" 
 			style="margin-top:20px;margin-bottom:20px;">
-    <md-progress-circular md-mode="indeterminate" md-diameter="60" class="md-accent"></md-progress-circular>
-</div>
+	    <md-progress-circular md-mode="indeterminate" md-diameter="60" class="md-accent"></md-progress-circular>
+	</div>
 </div>

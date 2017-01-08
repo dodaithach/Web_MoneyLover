@@ -4,6 +4,10 @@ angular.module('moneyApp')
 								 function($http, $state, authService, walletService, serverService) {
 	var ctrl = this;
 
+	if (!authService.isLoggedIn()) {
+    	$state.go('home');
+    }
+
 	this.isPending = false;
 	
 	this.pending = function(mode) {
@@ -71,6 +75,7 @@ angular.module('moneyApp')
 	}
 
 	this.delete = function() {
+		ctrl.pending(true);
 		var reqUrl = serverService.addr + "/walletInfos/" + ctrl.wallet._id + "?token=" + ctrl.user.token;
 		$http.delete(reqUrl).success(function(data) {
 			if (data.error) {

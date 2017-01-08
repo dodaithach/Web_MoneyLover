@@ -52,6 +52,11 @@ app.config(['$stateProvider', '$urlRouterProvider',
             templateUrl : '/uiview/walletDetail.html',
             controller : 'WalletDetailCtrl as walletDetailCtrl',
         })
+        .state('exchangeRate', {
+            url : '/exchangeRate',
+            templateUrl : '/uiview/exchangeRate.html',
+            controller : 'ExchangeRateCtrl as exchangeRateCtrl',
+        })
 
         $urlRouterProvider.otherwise('home');
 }]);
